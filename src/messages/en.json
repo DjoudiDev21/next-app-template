@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "login": "Login",
+    "register": "Register"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "signOut": "Sign Out",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "createAccount": "Create account",
+    "signInDescription": "Enter your credentials to access your account.",
+    "signUpDescription": "Fill in your information to get started.",
+    "signingIn": "Signing in…",
+    "creatingAccount": "Creating account…",
+    "verificationCode": "Verification code",
+    "verificationCodeSent": "Enter the verification code sent to <strong>{email}</strong>.",
+    "verifyEmail": "Verify email",
+    "verifying": "Verifying…",
+    "back": "Back",
+    "welcomeBack": "Welcome back!",
+    "accountCreated": "Account Created!",
+    "passwordCreated": "Password Created",
+    "unableToCreatePassword": "Unable to Create Password",
+    "emailVerificationRequired": "Email Verification Required",
+    "socialLogin": {
+      "continueWith": "Continue with {provider}",
+      "accountLinked": "Account Linked!",
+      "linkingFailed": "Linking Failed",
+      "accountUnlinked": "Account Unlinked",
+      "unlinkFailed": "Unlink Failed"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "passwordsDoNotMatch": "Passwords do not match",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required"
+    },
+    "errors": {
+      "signInFailed": "Sign in failed",
+      "registrationFailed": "Registration failed",
+      "verificationFailed": "Email verification failed",
+      "oauthFailed": "OAuth Failed",
+      "popupBlocked": "Popup Blocked",
+      "generalError": "Something went wrong. Please try again."
+    },
+    "messages": {
+      "checkEmailForVerification": "Please check your email inbox and click the verification link to continue.",
+      "passwordSetSuccess": "You can now sign in with your new password.",
+      "passwordSetError": "Please check your information and try again.",
+      "allowPopups": "Please allow popups for this site to use social login.",
+      "allowPopupsForLinking": "Please allow popups for this site to link social accounts."
+    }
+  },
+  "profile": {
+    "title": "Profile",
+    "personalInfo": "Personal Information",
+    "changePassword": "Change Password",
+    "loginMethods": "Login Methods",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "avatar": "Avatar",
+    "uploadAvatar": "Upload Avatar",
+    "deleteAvatar": "Delete Avatar",
+    "emailAndPassword": "Email & Password",
+    "passwordLoginEnabled": "Password login enabled",
+    "noPasswordSet": "No password set",
+    "addPassword": "Add Password",
+    "changePasswordAction": "Change Password",
+    "connectedAccount": "Connected account",
+    "linkAdditionalAccounts": "Link Additional Accounts",
+    "linkYourAccount": "Link your {provider} account for easier sign-in",
+    "linkAccount": "Link Account",
+    "unlink": "Unlink",
+    "connected": "Connected"
+  },
+  "toast": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Information"
+  }
+}

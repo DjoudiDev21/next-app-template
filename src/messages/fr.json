@@ -1,0 +1,112 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "register": "S'inscrire"
+  },
+  "auth": {
+    "signIn": "Se connecter",
+    "signUp": "S'inscrire",
+    "signOut": "Se déconnecter",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "alreadyHaveAccount": "Vous avez déjà un compte ?",
+    "dontHaveAccount": "Vous n'avez pas de compte ?",
+    "createAccount": "Créer un compte",
+    "signInDescription": "Saisissez vos identifiants pour accéder à votre compte.",
+    "signUpDescription": "Renseignez vos informations pour commencer.",
+    "signingIn": "Connexion…",
+    "creatingAccount": "Création du compte…",
+    "verificationCode": "Code de vérification",
+    "verificationCodeSent": "Saisissez le code de vérification envoyé à <strong>{email}</strong>.",
+    "verifyEmail": "Vérifier l'email",
+    "verifying": "Vérification…",
+    "back": "Retour",
+    "welcomeBack": "Bon retour !",
+    "accountCreated": "Compte créé !",
+    "passwordCreated": "Mot de passe créé",
+    "unableToCreatePassword": "Impossible de créer le mot de passe",
+    "emailVerificationRequired": "Vérification de l'email requise",
+    "socialLogin": {
+      "continueWith": "Continuer avec {provider}",
+      "accountLinked": "Compte lié !",
+      "linkingFailed": "Liaison échouée",
+      "accountUnlinked": "Compte délié",
+      "unlinkFailed": "Déliaison échouée"
+    },
+    "validation": {
+      "emailRequired": "L'email est requis",
+      "emailInvalid": "Veuillez entrer une adresse email valide",
+      "passwordRequired": "Le mot de passe est requis",
+      "passwordMinLength": "Le mot de passe doit contenir au moins 8 caractères",
+      "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+      "firstNameRequired": "Le prénom est requis",
+      "lastNameRequired": "Le nom est requis"
+    },
+    "errors": {
+      "signInFailed": "Connexion échouée",
+      "registrationFailed": "Inscription échouée",
+      "verificationFailed": "La vérification de l'email a échoué",
+      "oauthFailed": "OAuth échoué",
+      "popupBlocked": "Popup bloquée",
+      "generalError": "Une erreur s'est produite. Veuillez réessayer."
+    },
+    "messages": {
+      "checkEmailForVerification": "Veuillez vérifier votre boîte email et cliquer sur le lien de vérification pour continuer.",
+      "passwordSetSuccess": "Vous pouvez maintenant vous connecter avec votre nouveau mot de passe.",
+      "passwordSetError": "Veuillez vérifier vos informations et réessayer.",
+      "allowPopups": "Veuillez autoriser les popups pour ce site pour utiliser la connexion sociale.",
+      "allowPopupsForLinking": "Veuillez autoriser les popups pour ce site pour lier des comptes sociaux."
+    }
+  },
+  "profile": {
+    "title": "Profil",
+    "personalInfo": "Informations personnelles",
+    "changePassword": "Changer le mot de passe",
+    "loginMethods": "Méthodes de connexion",
+    "currentPassword": "Mot de passe actuel",
+    "newPassword": "Nouveau mot de passe",
+    "avatar": "Avatar",
+    "uploadAvatar": "Télécharger un avatar",
+    "deleteAvatar": "Supprimer l'avatar",
+    "emailAndPassword": "Email et mot de passe",
+    "passwordLoginEnabled": "Connexion par mot de passe activée",
+    "noPasswordSet": "Aucun mot de passe défini",
+    "addPassword": "Ajouter un mot de passe",
+    "changePasswordAction": "Changer le mot de passe",
+    "connectedAccount": "Compte connecté",
+    "linkAdditionalAccounts": "Lier des comptes supplémentaires",
+    "linkYourAccount": "Liez votre compte {provider} pour une connexion plus facile",
+    "linkAccount": "Lier le compte",
+    "unlink": "Délier",
+    "connected": "Connecté"
+  },
+  "toast": {
+    "success": "Succès",
+    "error": "Erreur",
+    "warning": "Avertissement",
+    "info": "Information"
+  }
+}
