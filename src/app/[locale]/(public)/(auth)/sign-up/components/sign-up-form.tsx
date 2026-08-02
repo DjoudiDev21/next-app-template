@@ -3,6 +3,8 @@
 import { usePathname, useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
+import { ClerkForm } from "@/components/clerk-form";
+import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { PasswordInput } from "@/components/ui/password-input";
@@ -73,7 +75,36 @@ export function SignUpForm() {
 
   if (isVerifying) {
     return (
-      <form className="space-y-5" onSubmit={handleVerification}>
+      <Form
+        onSubmit={handleVerification}
+        actions={
+          <>
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? t("verifying") : t("verifyEmail")}
+            </Button>
+
+            <Button
+              type="button"
+              variant="ghost"
+              className="w-full"
+              onClick={() => {
+                setError(null);
+                setVerificationCode("");
+                setIsVerifying(false);
+                void auth.resetSignUp();
+              }}
+              disabled={isSubmitting}
+            >
+              {t("back")}
+            </Button>
+          </>
+        }
+      >
         <p className="text-sm text-slate-500">
           {t.rich("verificationCodeSent", {
             email,
@@ -103,36 +134,24 @@ export function SignUpForm() {
             disabled={isSubmitting}
           />
         </div>
-
-        <Button
-          type="submit"
-          size="lg"
-          className="w-full"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? t("verifying") : t("verifyEmail")}
-        </Button>
-
-        <Button
-          type="button"
-          variant="ghost"
-          className="w-full"
-          onClick={() => {
-            setError(null);
-            setVerificationCode("");
-            setIsVerifying(false);
-            void auth.resetSignUp();
-          }}
-          disabled={isSubmitting}
-        >
-          {t("back")}
-        </Button>
-      </form>
+      </Form>
     );
   }
 
   return (
-    <form className="space-y-5" onSubmit={handleRegistration}>
+    <ClerkForm
+      onSubmit={handleRegistration}
+      actions={
+        <Button
+          type="submit"
+          size="lg"
+          className="w-full"
+          disabled={auth.status === "loading" || isSubmitting}
+        >
+          {isSubmitting ? t("creatingAccount") : t("createAccount")}
+        </Button>
+      }
+    >
       {error ? (
         <p
           role="alert"
@@ -196,15 +215,6 @@ export function SignUpForm() {
           disabled={isSubmitting}
         />
       </div>
-
-      <Button
-        type="submit"
-        size="lg"
-        className="w-full"
-        disabled={auth.status === "loading" || isSubmitting}
-      >
-        {isSubmitting ? t("creatingAccount") : t("createAccount")}
-      </Button>
-    </form>
+    </ClerkForm>
   );
 }

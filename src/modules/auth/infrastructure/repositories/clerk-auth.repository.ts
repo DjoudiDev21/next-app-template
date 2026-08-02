@@ -7,7 +7,7 @@ import {
   useUser,
 } from "@clerk/nextjs";
 import { useMemo } from "react";
-import type { AuthRepository } from "../../domain/interfaces/auth.repository";
+import type { AuthRepository } from "@/modules/auth";
 
 export function useClerkAuthRepository(): AuthRepository {
   const { isLoaded, isSignedIn, userId, getToken, signOut } = useClerkAuth();
