@@ -16,6 +16,8 @@ permissions:
 
 jobs:
   quality:
+    env:
+      NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ vars.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
     name: Quality
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -149,6 +151,9 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
+          build-args: |
+            NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ vars.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}
           push: false
           tags: next-app-template:ci
           cache-from: type=gha
@@ -159,6 +164,9 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
+          build-args: |
+            NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ vars.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}
+            NEXT_PUBLIC_API_URL=${{ vars.NEXT_PUBLIC_API_URL }}
           push: true
           tags: |
             ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKERHUB_REPOSITORY }}:${{ github.sha }}
