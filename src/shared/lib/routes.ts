@@ -2,11 +2,11 @@
  * Centralized route configuration for the application
  */
 export const ROUTES = {
-  HOME: "/",
-  PROTECTED: "/protected",
-  SIGN_IN: "/sign-in",
-  SIGN_UP: "/sign-up",
-  FORGOT_PASSWORD: "/forgot-password",
+  HOME: '/',
+  PROTECTED: '/protected',
+  SIGN_IN: '/sign-in',
+  SIGN_UP: '/sign-up',
+  FORGOT_PASSWORD: '/forgot-password',
 } as const;
 
 export type RouteKey = keyof typeof ROUTES;

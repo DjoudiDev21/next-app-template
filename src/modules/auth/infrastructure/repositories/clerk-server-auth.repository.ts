@@ -1,8 +1,8 @@
-import "server-only";
+import 'server-only';
 
-import { auth } from "@clerk/nextjs/server";
-import { AuthenticationRequiredError } from "../../domain/entities/authentication-required.error";
-import type { ServerAuthRepository } from "../../domain/interfaces/server-auth.repository";
+import { auth } from '@clerk/nextjs/server';
+import { AuthenticationRequiredError } from '../../domain/entities/authentication-required.error';
+import type { ServerAuthRepository } from '../../domain/interfaces/server-auth.repository';
 
 export class ClerkServerAuthRepository implements ServerAuthRepository {
   async getSession() {

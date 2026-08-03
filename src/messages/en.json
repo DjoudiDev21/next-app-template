@@ -49,6 +49,16 @@
     "passwordCreated": "Password Created",
     "unableToCreatePassword": "Unable to Create Password",
     "emailVerificationRequired": "Email Verification Required",
+    "backendSync": {
+      "provisioningTitle": "Finalizing your account",
+      "provisioningDescription": "We are synchronizing your identity with the application. This usually takes only a few seconds.",
+      "sessionExpiredTitle": "Session expired",
+      "sessionExpiredDescription": "Your Clerk session is no longer valid. Sign in again to continue.",
+      "failedTitle": "Unable to synchronize your account",
+      "failedDescription": "Your Clerk identity is valid, but your application profile could not be loaded.",
+      "retry": "Try again",
+      "signInAgain": "Sign in again"
+    },
     "socialLogin": {
       "continueWith": "Continue with {provider}",
       "accountLinked": "Account Linked!",

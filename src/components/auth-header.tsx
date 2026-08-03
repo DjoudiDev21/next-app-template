@@ -1,6 +1,6 @@
-import { LocaleSwitcher } from "@/components/locale-switcher";
-import { Link } from "@/i18n/navigation";
-import { ROUTES } from "@/shared/lib/routes";
+import { LocaleSwitcher } from '@/components/locale-switcher';
+import { Link } from '@/i18n/navigation';
+import { ROUTES } from '@/shared/lib/routes';
 
 export function AuthHeader() {
   return (

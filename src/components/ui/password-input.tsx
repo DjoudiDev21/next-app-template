@@ -1,11 +1,13 @@
-"use client";
+'use client';
 
-import { useState, forwardRef } from "react";
-import { cn } from "@/shared/lib/utils";
-import { Input } from "@/components/ui/input";
+import { useState, forwardRef } from 'react';
+import { cn } from '@/shared/lib/utils';
+import { Input } from '@/components/ui/input';
 
-export interface PasswordInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, "type"> {
+export interface PasswordInputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'type'
+> {
   className?: string;
   error?: boolean;
 }
@@ -21,10 +23,10 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
     return (
       <div className="relative">
         <Input
-          type={showPassword ? "text" : "password"}
+          type={showPassword ? 'text' : 'password'}
           className={cn(
-            "pr-10", // Add padding for the icon
-            error && "border-red-500",
+            'pr-10', // Add padding for the icon
+            error && 'border-red-500',
             className,
           )}
           ref={ref}
@@ -79,6 +81,6 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
   },
 );
 
-PasswordInput.displayName = "PasswordInput";
+PasswordInput.displayName = 'PasswordInput';
 
 export { PasswordInput };

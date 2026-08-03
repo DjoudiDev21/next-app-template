@@ -1,29 +1,29 @@
-"use client";
+'use client';
 
-import { useLocale } from "next-intl";
-import { usePathname, useRouter } from "@/i18n/navigation";
-import { useState, useTransition } from "react";
-import { Button } from "@/components/ui/button";
+import { useLocale } from 'next-intl';
+import { usePathname, useRouter } from '@/i18n/navigation';
+import { useState, useTransition } from 'react';
+import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDownIcon } from "lucide-react";
+} from '@/components/ui/dropdown-menu';
+import { ChevronDownIcon } from 'lucide-react';
 
-type Locale = "en" | "fr" | "es";
+type Locale = 'en' | 'fr' | 'es';
 
 const localeNames: Record<Locale, string> = {
-  en: "English (EN)",
-  fr: "Français (FR)",
-  es: "Español (ES)",
+  en: 'English (EN)',
+  fr: 'Français (FR)',
+  es: 'Español (ES)',
 };
 
 const localeShort: Record<Locale, string> = {
-  en: "EN",
-  fr: "FR",
-  es: "ES",
+  en: 'EN',
+  fr: 'FR',
+  es: 'ES',
 };
 
 export function LocaleSwitcher() {
@@ -70,8 +70,8 @@ export function LocaleSwitcher() {
                 onClick={() => handleLocaleChange(localeKey)}
                 className={`flex items-center px-4 py-2 text-xs font-medium transition-colors cursor-pointer ${
                   isActive
-                    ? "text-primary bg-primary/10 font-semibold"
-                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800"
+                    ? 'text-primary bg-primary/10 font-semibold'
+                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                 }`}
                 disabled={isActive}
               >

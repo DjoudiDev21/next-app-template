@@ -1,33 +1,31 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter } from "next/navigation";
-import { useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/button";
-import { ClerkForm } from "@/components/clerk-form";
-import { Form } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { PasswordInput } from "@/components/ui/password-input";
-import { useAuth } from "@/providers/app-auth-provider";
-import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from 'next/navigation';
+import { useState, type FormEvent } from 'react';
+import { Button } from '@/components/ui/button';
+import { ClerkForm } from '@/components/clerk-form';
+import { Form } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { PasswordInput } from '@/components/ui/password-input';
+import { useAuth } from '@/providers/app-auth-provider';
+import { useTranslations } from 'next-intl';
 
 function getErrorMessage(error: unknown, fallback: string) {
-  return error instanceof Error
-    ? error.message
-    : fallback;
+  return error instanceof Error ? error.message : fallback;
 }
 
 export function SignUpForm() {
-  const t = useTranslations("auth");
+  const t = useTranslations('auth');
   const auth = useAuth();
   const pathname = usePathname();
   const router = useRouter();
-  const locale = pathname.split("/")[1] || "fr";
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [verificationCode, setVerificationCode] = useState("");
+  const locale = pathname.split('/')[1] || 'fr';
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [verificationCode, setVerificationCode] = useState('');
   const [isVerifying, setIsVerifying] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -35,7 +33,7 @@ export function SignUpForm() {
   async function handleRegistration(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (auth.status === "loading") return;
+    if (auth.status === 'loading') return;
 
     setError(null);
     setIsSubmitting(true);
@@ -49,7 +47,7 @@ export function SignUpForm() {
       });
       setIsVerifying(true);
     } catch (caughtError) {
-      setError(getErrorMessage(caughtError, t("errors.registrationFailed")));
+      setError(getErrorMessage(caughtError, t('errors.registrationFailed')));
     } finally {
       setIsSubmitting(false);
     }
@@ -58,7 +56,7 @@ export function SignUpForm() {
   async function handleVerification(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (auth.status === "loading") return;
+    if (auth.status === 'loading') return;
 
     setError(null);
     setIsSubmitting(true);
@@ -67,7 +65,7 @@ export function SignUpForm() {
       await auth.verifySignUpEmail(verificationCode.trim());
       router.replace(`/${locale}/protected`);
     } catch (caughtError) {
-      setError(getErrorMessage(caughtError, t("errors.verificationFailed")));
+      setError(getErrorMessage(caughtError, t('errors.verificationFailed')));
     } finally {
       setIsSubmitting(false);
     }
@@ -85,7 +83,7 @@ export function SignUpForm() {
               className="w-full"
               disabled={isSubmitting}
             >
-              {isSubmitting ? t("verifying") : t("verifyEmail")}
+              {isSubmitting ? t('verifying') : t('verifyEmail')}
             </Button>
 
             <Button
@@ -94,19 +92,19 @@ export function SignUpForm() {
               className="w-full"
               onClick={() => {
                 setError(null);
-                setVerificationCode("");
+                setVerificationCode('');
                 setIsVerifying(false);
                 void auth.resetSignUp();
               }}
               disabled={isSubmitting}
             >
-              {t("back")}
+              {t('back')}
             </Button>
           </>
         }
       >
         <p className="text-sm text-slate-500">
-          {t.rich("verificationCodeSent", {
+          {t.rich('verificationCodeSent', {
             email,
             strong: (chunks) => <strong>{chunks}</strong>,
           })}
@@ -122,7 +120,7 @@ export function SignUpForm() {
         ) : null}
 
         <div className="space-y-2">
-          <Label htmlFor="verification-code">{t("verificationCode")}</Label>
+          <Label htmlFor="verification-code">{t('verificationCode')}</Label>
           <Input
             id="verification-code"
             name="verification-code"
@@ -146,9 +144,9 @@ export function SignUpForm() {
           type="submit"
           size="lg"
           className="w-full"
-          disabled={auth.status === "loading" || isSubmitting}
+          disabled={auth.status === 'loading' || isSubmitting}
         >
-          {isSubmitting ? t("creatingAccount") : t("createAccount")}
+          {isSubmitting ? t('creatingAccount') : t('createAccount')}
         </Button>
       }
     >
@@ -163,7 +161,7 @@ export function SignUpForm() {
 
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-2">
-          <Label htmlFor="first-name">{t("firstName")}</Label>
+          <Label htmlFor="first-name">{t('firstName')}</Label>
           <Input
             id="first-name"
             name="first-name"
@@ -175,7 +173,7 @@ export function SignUpForm() {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="last-name">{t("lastName")}</Label>
+          <Label htmlFor="last-name">{t('lastName')}</Label>
           <Input
             id="last-name"
             name="last-name"
@@ -189,7 +187,7 @@ export function SignUpForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="email">{t("email")}</Label>
+        <Label htmlFor="email">{t('email')}</Label>
         <Input
           id="email"
           name="email"
@@ -203,7 +201,7 @@ export function SignUpForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="password">{t("password")}</Label>
+        <Label htmlFor="password">{t('password')}</Label>
         <PasswordInput
           id="password"
           name="password"

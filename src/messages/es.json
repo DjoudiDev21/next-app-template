@@ -49,6 +49,16 @@
     "passwordCreated": "Contraseña creada",
     "unableToCreatePassword": "No se pudo crear la contraseña",
     "emailVerificationRequired": "Verificación de email requerida",
+    "backendSync": {
+      "provisioningTitle": "Finalizando tu cuenta",
+      "provisioningDescription": "Estamos sincronizando tu identidad con la aplicación. Normalmente solo tarda unos segundos.",
+      "sessionExpiredTitle": "Sesión caducada",
+      "sessionExpiredDescription": "Tu sesión de Clerk ya no es válida. Inicia sesión de nuevo para continuar.",
+      "failedTitle": "No se pudo sincronizar tu cuenta",
+      "failedDescription": "Tu identidad de Clerk es válida, pero no se pudo cargar tu perfil de la aplicación.",
+      "retry": "Reintentar",
+      "signInAgain": "Iniciar sesión de nuevo"
+    },
     "socialLogin": {
       "continueWith": "Continuar con {provider}",
       "accountLinked": "¡Cuenta vinculada!",

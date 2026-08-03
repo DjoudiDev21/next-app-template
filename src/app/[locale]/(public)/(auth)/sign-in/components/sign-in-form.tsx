@@ -1,37 +1,35 @@
-"use client";
+'use client';
 
-import { usePathname, useRouter } from "next/navigation";
-import { useState, type FormEvent } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Link } from "@/i18n/navigation";
-import { Label } from "@/components/ui/label";
-import { PasswordInput } from "@/components/ui/password-input";
-import { useAuth } from "@/providers/app-auth-provider";
-import { ROUTES } from "@/shared/lib/routes";
-import { useTranslations } from "next-intl";
+import { usePathname, useRouter } from 'next/navigation';
+import { useState, type FormEvent } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Link } from '@/i18n/navigation';
+import { Label } from '@/components/ui/label';
+import { PasswordInput } from '@/components/ui/password-input';
+import { useAuth } from '@/providers/app-auth-provider';
+import { ROUTES } from '@/shared/lib/routes';
+import { useTranslations } from 'next-intl';
 
 function getErrorMessage(error: unknown, fallback: string) {
-  return error instanceof Error
-    ? error.message
-    : fallback;
+  return error instanceof Error ? error.message : fallback;
 }
 
 export function SignInForm() {
-  const t = useTranslations("auth");
+  const t = useTranslations('auth');
   const auth = useAuth();
   const pathname = usePathname();
   const router = useRouter();
-  const locale = pathname.split("/")[1] || "fr";
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const locale = pathname.split('/')[1] || 'fr';
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    if (auth.status === "loading") return;
+    if (auth.status === 'loading') return;
 
     setError(null);
     setIsSubmitting(true);
@@ -40,7 +38,7 @@ export function SignInForm() {
       await auth.signInWithPassword(email.trim(), password);
       router.replace(`/${locale}/protected`);
     } catch (caughtError) {
-      setError(getErrorMessage(caughtError, t("errors.signInFailed")));
+      setError(getErrorMessage(caughtError, t('errors.signInFailed')));
     } finally {
       setIsSubmitting(false);
     }
@@ -58,7 +56,7 @@ export function SignInForm() {
       ) : null}
 
       <div className="space-y-2">
-        <Label htmlFor="email">{t("email")}</Label>
+        <Label htmlFor="email">{t('email')}</Label>
         <Input
           id="email"
           name="email"
@@ -73,12 +71,12 @@ export function SignInForm() {
 
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <Label htmlFor="password">{t("password")}</Label>
+          <Label htmlFor="password">{t('password')}</Label>
           <Link
             href={ROUTES.FORGOT_PASSWORD}
             className="text-xs text-primary hover:underline"
           >
-            {t("forgotPassword")}
+            {t('forgotPassword')}
           </Link>
         </div>
         <PasswordInput
@@ -96,9 +94,9 @@ export function SignInForm() {
         type="submit"
         size="lg"
         className="w-full"
-        disabled={auth.status === "loading" || isSubmitting}
+        disabled={auth.status === 'loading' || isSubmitting}
       >
-        {isSubmitting ? t("signingIn") : t("signIn")}
+        {isSubmitting ? t('signingIn') : t('signIn')}
       </Button>
     </form>
   );

@@ -1,4 +1,4 @@
-import { Form, type FormProps } from "@/components/ui/form";
+import { Form, type FormProps } from '@/components/ui/form';
 
 type ClerkFormProps = FormProps;
 

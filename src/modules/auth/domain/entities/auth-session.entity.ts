@@ -2,4 +2,4 @@ export interface AuthSession {
   identityId: string;
 }
 
-export type AuthStatus = "loading" | "authenticated" | "anonymous";
+export type AuthStatus = 'loading' | 'authenticated' | 'anonymous';

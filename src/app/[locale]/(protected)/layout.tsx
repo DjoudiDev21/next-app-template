@@ -1,9 +1,10 @@
-import { redirect } from "next/navigation";
-import type { ReactNode } from "react";
-import { ROUTES } from "@/shared/lib/routes";
-import { serverAuthRepository } from "@/modules/auth/infrastructure/repositories/clerk-server-auth.repository";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
+import { redirect } from 'next/navigation';
+import type { ReactNode } from 'react';
+import { ROUTES } from '@/shared/lib/routes';
+import { serverAuthRepository } from '@/modules/auth/infrastructure/repositories/clerk-server-auth.repository';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { BackendProfileGate } from '@/components/backend-profile-gate';
 
 export default async function ProtectedLayout({
   children,
@@ -22,7 +23,9 @@ export default async function ProtectedLayout({
   return (
     <div className="flex min-h-screen flex-col overflow-x-hidden">
       <Header />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">
+        <BackendProfileGate>{children}</BackendProfileGate>
+      </main>
       <Footer />
     </div>
   );

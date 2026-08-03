@@ -46,12 +46,12 @@ next-env.d.ts
 # clerk configuration (can include secrets)
 /.clerk/
 
-  # editors
-  .vscode/
+# editors
+.vscode/
 
-  # test output
-  /test-results/
-  /playwright-report/
+# test output
+/test-results/
+/playwright-report/
 
-  # local tooling
-  .turbo/
+# local tooling
+.turbo/

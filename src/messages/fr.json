@@ -49,6 +49,16 @@
     "passwordCreated": "Mot de passe créé",
     "unableToCreatePassword": "Impossible de créer le mot de passe",
     "emailVerificationRequired": "Vérification de l'email requise",
+    "backendSync": {
+      "provisioningTitle": "Finalisation de votre compte",
+      "provisioningDescription": "Nous synchronisons votre identité avec l'application. Cela ne prend généralement que quelques secondes.",
+      "sessionExpiredTitle": "Session expirée",
+      "sessionExpiredDescription": "Votre session Clerk n'est plus valide. Reconnectez-vous pour continuer.",
+      "failedTitle": "Synchronisation impossible",
+      "failedDescription": "Votre identité Clerk est valide, mais votre profil applicatif n'a pas pu être chargé.",
+      "retry": "Réessayer",
+      "signInAgain": "Se reconnecter"
+    },
     "socialLogin": {
       "continueWith": "Continuer avec {provider}",
       "accountLinked": "Compte lié !",

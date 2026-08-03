@@ -1,10 +1,10 @@
-import "../globals.css";
-import React from "react";
-import { Toaster } from "sonner";
-import { getMessages, setRequestLocale } from "next-intl/server";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { notFound } from "next/navigation";
-import { routing } from "@/i18n/routing";
+import '../globals.css';
+import React from 'react';
+import { Toaster } from 'sonner';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
+import { notFound } from 'next/navigation';
+import { routing } from '@/i18n/routing';
 
 export default async function LocaleLayout({
   children,

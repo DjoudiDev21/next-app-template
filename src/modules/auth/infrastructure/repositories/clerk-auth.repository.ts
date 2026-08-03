@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
 import {
   useAuth as useClerkAuth,
   useSignIn,
   useSignUp,
   useUser,
-} from "@clerk/nextjs";
-import { useMemo } from "react";
-import type { AuthRepository } from "@/modules/auth";
+} from '@clerk/nextjs';
+import { useMemo } from 'react';
+import type { AuthRepository } from '@/modules/auth';
 
 export function useClerkAuthRepository(): AuthRepository {
   const { isLoaded, isSignedIn, userId, getToken, signOut } = useClerkAuth();
@@ -18,10 +18,10 @@ export function useClerkAuthRepository(): AuthRepository {
   return useMemo<AuthRepository>(
     () => ({
       status: !isLoaded
-        ? "loading"
+        ? 'loading'
         : isSignedIn
-          ? "authenticated"
-          : "anonymous",
+          ? 'authenticated'
+          : 'anonymous',
       identity:
         isSignedIn && userId
           ? {
@@ -33,6 +33,16 @@ export function useClerkAuthRepository(): AuthRepository {
               avatarUrl: user?.imageUrl ?? null,
             }
           : null,
+      backendProfile: {
+        status: !isLoaded
+          ? 'loading'
+          : isSignedIn
+            ? 'provisioning'
+            : 'anonymous',
+        profile: null,
+        error: null,
+      },
+      retryBackendProfile: () => {},
       getAccessToken: ({ forceRefresh } = {}) =>
         getToken({ skipCache: forceRefresh }),
       signInWithPassword: async (email, password) => {
@@ -45,8 +55,8 @@ export function useClerkAuthRepository(): AuthRepository {
           throw new Error(error.longMessage ?? error.message);
         }
 
-        if (signIn.status !== "complete") {
-          throw new Error("Additional verification is required.");
+        if (signIn.status !== 'complete') {
+          throw new Error('Additional verification is required.');
         }
 
         const finalized = await signIn.finalize();
@@ -57,12 +67,7 @@ export function useClerkAuthRepository(): AuthRepository {
           );
         }
       },
-      signUpWithPassword: async ({
-        firstName,
-        lastName,
-        email,
-        password,
-      }) => {
+      signUpWithPassword: async ({ firstName, lastName, email, password }) => {
         const { error } = await signUp.password({
           firstName,
           lastName,
@@ -89,8 +94,8 @@ export function useClerkAuthRepository(): AuthRepository {
           throw new Error(error.longMessage ?? error.message);
         }
 
-        if (signUp.status !== "complete") {
-          throw new Error("Your account could not be activated.");
+        if (signUp.status !== 'complete') {
+          throw new Error('Your account could not be activated.');
         }
 
         const finalized = await signUp.finalize();
@@ -112,15 +117,6 @@ export function useClerkAuthRepository(): AuthRepository {
         await signOut();
       },
     }),
-    [
-      getToken,
-      isLoaded,
-      isSignedIn,
-      signIn,
-      signOut,
-      signUp,
-      user,
-      userId,
-    ],
+    [getToken, isLoaded, isSignedIn, signIn, signOut, signUp, user, userId],
   );
 }

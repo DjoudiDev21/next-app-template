@@ -1,4 +1,5 @@
-import type { AccessTokenRepository } from "../../domain/interfaces/access-token.repository";
+import type { AccessTokenRepository } from '../../domain/interfaces/access-token.repository';
+import { AccessTokenUnavailableError } from '../../domain/entities/access-token.error';
 
 /**
  * Adds the current access token to API requests and retries once with a
@@ -25,11 +26,11 @@ export class AuthenticatedFetchUseCase {
     const token = await this.tokens.getAccessToken({ forceRefresh });
     const headers = new Headers(init.headers);
 
-    if (token) {
-      headers.set("Authorization", `Bearer ${token}`);
-    } else {
-      headers.delete("Authorization");
+    if (!token) {
+      throw new AccessTokenUnavailableError();
     }
+
+    headers.set('Authorization', `Bearer ${token}`);
 
     return fetch(input, { ...init, headers });
   }

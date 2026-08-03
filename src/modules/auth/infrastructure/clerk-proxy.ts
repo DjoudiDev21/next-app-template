@@ -1,8 +1,8 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
-import { NextResponse } from "next/server";
+import { clerkMiddleware } from '@clerk/nextjs/server';
+import { NextResponse } from 'next/server';
 
-const supportedLocales = ["en", "fr", "es"];
-const defaultLocale = "fr";
+const supportedLocales = ['en', 'fr', 'es'];
+const defaultLocale = 'fr';
 const protectedRoutePattern = /^\/(?:en|fr|es)\/(?:protected)(?:\/|$)/;
 
 export default clerkMiddleware(async (auth, request) => {
@@ -13,7 +13,7 @@ export default clerkMiddleware(async (auth, request) => {
 
   if (!hasLocale) {
     const localizedPath =
-      pathname === "/" ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
+      pathname === '/' ? `/${defaultLocale}` : `/${defaultLocale}${pathname}`;
 
     return NextResponse.redirect(new URL(localizedPath, request.url));
   }
